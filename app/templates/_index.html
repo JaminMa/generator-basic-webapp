@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= appName %></title>
+		<!-- build:css main.min.css -->
+		<link rel="stylesheet" type="text/css" href="src/styles/main.css">
+		<!-- endbuild -->
+	</head>
+	<body>
+        <p><%= appDescription %></p>
+		<!-- build:js main.min.js -->
+        <script type="text/javascript" src="bower_components/requirejs/require.js"></script>
+        <script type="text/javascript" src="requireconfig.js"></script>
+		<script type="text/javascript">
+            require(['src/scripts/main.js']);
+        </script>
+		<!-- endbuild -->
+	</body>
+</html>
