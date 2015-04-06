@@ -1,4 +1,4 @@
-# generator-basic-webapp [![Build Status](https://secure.travis-ci.org/jaminma/generator-basic-webapp.png?branch=master)](https://travis-ci.org/jaminma/generator-basic-webapp)
+# generator-basic-webapp [![Build Status](https://travis-ci.org/JaminMa/generator-basic-webapp.svg?branch=master)](https://travis-ci.org/JaminMa/generator-basic-webapp)
 
 
 ## Overview
