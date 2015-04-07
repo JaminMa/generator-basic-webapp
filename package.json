@@ -22,7 +22,13 @@
         "app"
     ],
     "keywords": [
-        "yeoman-generator"
+        "yeoman-generator",
+        "scaffold",
+        "front-end",
+        "requirejs",
+        "underscore",
+        "jquery",
+        "grunt"
     ],
     "dependencies": {
         "yeoman-generator": "^0.18.9",
