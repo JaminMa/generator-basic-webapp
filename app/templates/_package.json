@@ -1,4 +1,4 @@
-B{
+{
     "name": "<%= appName %>",
     "description": "<%= appDescription %>",
     "author": "<%= authorName %><% if (authorEmail) { %> <<%= authorEmail %>><% } %>",
