@@ -144,7 +144,11 @@ module.exports = yeoman.generators.Base.extend({
     install: function(){
         // Run npm install & bower install if requested
         if(this.genInstallDeps){
-            this.installDependencies();
+            this.installDependencies({
+                callback: function(){
+                  this.spawnCommand('grunt');
+                }.bind(this)
+            });
         }
         else{
             this.log('\nI\'m all done.\n');
