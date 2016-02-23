@@ -21,6 +21,7 @@ npm install -g generator-basic-webapp
 ## Usage
 
 ```bash
+mkdir myApp && cd $_
 yo basic-webapp
 ```
 
