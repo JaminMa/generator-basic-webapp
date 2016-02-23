@@ -1,6 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
+var chalk = require("chalk");
 
 module.exports = yeoman.generators.Base.extend({
     constructor: function() {
@@ -21,6 +22,7 @@ module.exports = yeoman.generators.Base.extend({
         // Greet the user and prompt for input
         var done = this.async();
         this.log(yosay('Basic Web Application Generator'));
+        this.log('This will scaffold out a basic web application in the current directory.');
         this.log('Please provide/answer the following:');
         var prompts = [
             {
@@ -63,7 +65,7 @@ module.exports = yeoman.generators.Base.extend({
             {
                 type: 'confirm',
                 name: 'genInstallDeps',
-                message: 'Run ' + 'npm install & bower install'.yellow + ' upon completion?',
+                message: 'Run ' + chalk.yellow('npm install & bower install') + ' upon completion?',
                 default: true,
                 when: function() {
                     return (!this.options['skip-install']);

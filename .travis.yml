@@ -1,6 +1,7 @@
 sudo: false
 language: node_js
-node_js:
-    - 'iojs'
-    - '0.12'
-    - '0.10'
+deploy:
+  api_key:
+    secure: daFdl1haalAY7JYCCOTJHGnvTdZxJX5j9w7+GavcVItNZC7jxBtRKBcNZVAn0EvPky2MM9RkKhsv41MNiOtCpzHS84j4i7BK6PlwR4dGeGQG4kCz4yx3ogRQGWgnXe6sOiYRfnDXhqE+2Kl9/VS1ra2jefScTQiqPuCEv1/QoRQ=
+  email: dev.jamin@gmail.com
+  provider: npm

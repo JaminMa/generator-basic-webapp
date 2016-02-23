@@ -3,15 +3,13 @@
     "description": "<%= appDescription %>",
     "author": "<%= authorName %><% if (authorEmail) { %> <<%= authorEmail %>><% } %>",
     "license": "<%= appLicense %>",
-    "readmeFilename": "README.md",
     "version": "0.1.0",
     "engines": {
         "node": ">=0.10.26",
         "npm": ">=1.4.15"
     },
     "scripts": {
-        "default": "grunt",
-        "release": "grunt release"
+      "start": "node server.js"
     },
     "devDependencies": {
         "bower": "^1.3.5",
