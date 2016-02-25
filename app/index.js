@@ -20,15 +20,13 @@ module.exports = yeoman.generators.Base.extend({
 
     prompting: function() {
         // Greet the user and prompt for input
-        var done = this.async();
-        this.log(yosay('Basic Web Application Generator'));
-        this.log('This will scaffold out a basic web application in the current directory.');
-        this.log('Please provide/answer the following:');
+        var done = this.async();          
         var prompts = [
             {
                 type: 'input',
                 name: 'appName',
                 message: 'Application Name',
+                default: this.appname, // Default to current folder name
                 validate: function(input) {
                     if (!input || input.trim() === '') {
                         return "You need to provide a name for your application";
@@ -70,8 +68,21 @@ module.exports = yeoman.generators.Base.extend({
                 when: function() {
                     return (!this.options['skip-install']);
                 }.bind(this)
-            }
+            },
+            {
+                type: 'confirm',
+                name: 'genRunGrunt',
+                message: 'Run ' + chalk.yellow('grunt') + ' as well?',
+                default: true,
+                when: function(answers) {
+                  return (answers.genInstallDeps);
+                }.bind(this)
+            },
         ];
+
+        this.log(yosay('Basic Web Application Generator'));
+        this.log('This will scaffold out a basic web application in the current directory.\n');
+        this.log('Please provide/answer the following:');
         this.prompt(prompts, function(answers) {
             this.appName = answers.appName || this.appName;
             this.appDescription = answers.appDescription;
@@ -79,6 +90,7 @@ module.exports = yeoman.generators.Base.extend({
             this.authorName = answers.authorName;
             this.authorEmail = answers.authorEmail;
             this.genInstallDeps = answers.genInstallDeps;
+            this.genRunGrunt = answers.genRunGrunt;
             done();
         }.bind(this));
     },
@@ -146,7 +158,10 @@ module.exports = yeoman.generators.Base.extend({
         if(this.genInstallDeps){
             this.installDependencies({
                 callback: function(){
-                  this.spawnCommand('grunt');
+                    // Run grunt if requested
+                    if(this.genRunGrunt){    
+                        this.spawnCommand('grunt');
+                    }
                 }.bind(this)
             });
         }
